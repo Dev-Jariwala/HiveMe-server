@@ -16,7 +16,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/hiveme", {
+  .connect("mongodb+srv://devjariwala:devjariwala@cluster0.zbnsp.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

@@ -23,3 +23,12 @@ exports.loginUser = async (req, res) => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+exports.isAuthenticated = async (req, res, next) => {
+  if (req.isAuthenticated()) {
+    // User is authenticated
+    return next();
+  } else {
+    // User is not authenticated
+    return res.json({ message: "user not authenticated" });
+  }
+};
