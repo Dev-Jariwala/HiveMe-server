@@ -1,9 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const passport = require("passport");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
+const { config } = require("dotenv");
 
 const app = express();
 
@@ -16,10 +18,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose
-  .connect("mongodb+srv://devjariwala:devjariwala@cluster0.zbnsp.mongodb.net/", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://devjariwala:devjariwala@cluster0.zbnsp.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("connection sucessful"))
   .catch((err) => console.log(err));
 
