@@ -60,7 +60,7 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ message: "Error registering user" });
   }
 });
-router.get("/logout", (req, res) => {
+router.get("/logout", isAuthenticated, (req, res) => {
   req.logout(() => {
     res.json({ message: "Logged out successfully" });
   });

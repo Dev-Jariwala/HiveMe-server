@@ -25,10 +25,10 @@ exports.loginUser = async (req, res) => {
 };
 exports.isAuthenticated = async (req, res, next) => {
   if (req.isAuthenticated()) {
-    // User is authenticated
+    console.log("User is authenticated");
     return next();
   } else {
-    // User is not authenticated
-    return res.json({ message: "user not authenticated" });
+    console.log("User is not authenticated");
+    return res.status(401).json({ message: "User is not authenticated" });
   }
 };
